@@ -1,10 +1,4 @@
 import { React, useRef, useEffect, useState, Children, isValidElement, cloneElement } from "react";
-import Marker from "./Marker";
-
-const markers = [
-  { lat: -25.363, lng: 131.044 },
-  { lat: -15.363, lng: 122.044 }
-];
 
 const Map = ({ onClick, onIdle, children, style, ...options }) => {
   const ref = useRef(null);
@@ -30,6 +24,7 @@ const Map = ({ onClick, onIdle, children, style, ...options }) => {
 
       if (onClick) {
         map.addListener("click", onClick);
+        console.log('clicked!');
       }
 
       if (onIdle) {
@@ -45,29 +40,8 @@ const Map = ({ onClick, onIdle, children, style, ...options }) => {
             return cloneElement(child, { map });
           }
         })};
-        {markers.map((marker) => {
-          return <Marker position={marker} />;
-        })};
     </div>
   );
 };
-
-// export default function App() {
-//   return (
-//     // <div style={{ display: "flex", height: "100vh", width: "100vw" }}>
-//     //   <Wrapper apiKey={""}>
-//         <Map
-//           center={{ lat: -25.363, lng: 131.044 }}
-//           zoom={3}
-//           style={{ flexGrow: "1", height: "100%" }}
-//         >
-//           {markers.map((marker) => {
-//             return <Marker position={marker} />;
-//           })}
-//         </Map>
-//     //   </Wrapper>
-//     // </div>
-//   );
-// }
 
 export default Map;
