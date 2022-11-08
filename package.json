@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MMMPhoto/google-maps-sandbox/issues"
   },
-  "homepage": "https://github.com/MMMPhoto/google-maps-sandbox#readme"
+  "homepage": "https://github.com/MMMPhoto/google-maps-sandbox#readme",
+  "dependencies": {
+    "create-react-app": "^5.0.1"
+  }
 }
