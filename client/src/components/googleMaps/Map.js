@@ -1,4 +1,5 @@
 import { React, useRef, useEffect, useState, Children, isValidElement, cloneElement } from "react";
+import Marker from "./Marker";
 
 const markers = [
   { lat: -25.363, lng: 131.044 },
@@ -40,48 +41,16 @@ const Map = ({ onClick, onIdle, children, style, ...options }) => {
   return (
     <div ref={ref} style={style} >
         {Children.map(children, (child) => {
-            if (isValidElement(child)) {
-                return cloneElement(child, { map });
-            }
-        })}
+          if (isValidElement(child)) {
+            return cloneElement(child, { map });
+          }
+        })};
+        {markers.map((marker) => {
+          return <Marker position={marker} />;
+        })};
     </div>
   );
 };
-
-// const Marker = (options) => {
-//   const [marker, setMarker] = useState();
-//   const contentRef = useRef(null);
-
-//   useEffect(() => {
-//     if (!marker) {
-//       setMarker(new window.google.maps.Marker());
-//     }
-
-//     return () => {
-//       if (marker) {
-//         marker.setMap(null);
-//       }
-//     };
-//   }, [marker]);
-
-//   useEffect(() => {
-//     if (marker) {
-//       const infowindow = new window.google.maps.InfoWindow({
-//         content: `daver`
-//       });
-//       marker.setOptions(options);
-
-//       marker.addListener("click", () => {
-//         infowindow.open({
-//           anchor: marker,
-//           shouldFocus: false
-//         });
-//       });
-//     }
-//   }, [marker, options]);
-
-//   return null;
-// };
 
 // export default function App() {
 //   return (

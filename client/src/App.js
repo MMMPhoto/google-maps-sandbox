@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import MapsWrapper from './components/MapsWrapper';
+import MapsWrapper from './components/googleMaps/MapsWrapper';
 
 function App() {
   return (
