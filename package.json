@@ -1,0 +1,19 @@
+{
+  "name": "google-maps-sandbox",
+  "version": "1.0.0",
+  "description": "Official Google Maps API setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MMMPhoto/google-maps-sandbox.git"
+  },
+  "author": "Max McDonough",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MMMPhoto/google-maps-sandbox/issues"
+  },
+  "homepage": "https://github.com/MMMPhoto/google-maps-sandbox#readme"
+}
