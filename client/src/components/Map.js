@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, React, Children } from "react";
+import { React, useRef, useEffect, useState, Children, isValidElement, cloneElement } from "react";
 
 const markers = [
   { lat: -25.363, lng: 131.044 },
@@ -38,14 +38,13 @@ const Map = ({ onClick, onIdle, children, style, ...options }) => {
   }, [map, onClick, onIdle]);
 
   return (
-    <>
-      <div ref={ref} style={style} />
-      {Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          return React.cloneElement(child, { map });
-        }
-      })}
-    </>
+    <div ref={ref} style={style} >
+        {Children.map(children, (child) => {
+            if (isValidElement(child)) {
+                return cloneElement(child, { map });
+            }
+        })}
+    </div>
   );
 };
 
