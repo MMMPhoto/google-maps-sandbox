@@ -1,7 +1,7 @@
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
-// import Map from './Map';
+import Map from './Map';
 
-const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 
 const render = (status) => {
     switch (status) {
@@ -13,15 +13,24 @@ const render = (status) => {
         return <h1>Error</h1>;
       case Status.SUCCESS:
         console.log('Success');
-        return <h1>Success</h1>;
+        return (
+                <Map
+                    center={{ lat: -25.363, lng: 131.044 }}
+                    zoom={3}
+                    style={{ flexGrow: "1", height: "100%" }}
+                >
+                    {/* {markers.map((marker) => {
+                        return <Marker position={marker} />;
+                    })} */}
+                </Map>
+        );
     }
 };
 
 const MapsWrapper = () => {
-
     return (
-        <div>
-            <Wrapper apiKey={apiKey} render={render} />
+        <div style={{ display: "flex", height: "100vh", width: "100vw" }}>
+            <Wrapper apiKey={googleMapsApiKey} render={render} />
         </div>
     );
 };
